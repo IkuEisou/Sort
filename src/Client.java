@@ -55,16 +55,4 @@ public class Client {
 
 		sc.close();
 	}
-
-	private static void exeSort(int no, String[] strArr) {
-		switch (no) {
-		case 1:
-			selectionSort(strArr);
-			break;
-		case 2:
-			break;
-		}
-
-	}
-
 }
