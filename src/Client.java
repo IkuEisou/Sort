@@ -1,6 +1,5 @@
+import static util.Sort.*;
 import java.util.Scanner;
-
-import util.Sort;
 
 /**
  * 
@@ -20,14 +19,20 @@ public class Client {
 		Scanner sc = new Scanner(System.in);
 
 		do {
-			System.out.println("Input you want to sort array which delimiter is comma:");
+			System.out.println("Input you want to sort array which delimiter is comma(input q to exit ):");
 
 			input = sc.nextLine();
+			if (input.equals("q")) {
+				System.out.println("Exit from this app!");
+				break;
+			}
+
 			String[] strArr = input.split(",");
 
 			System.out.println("Select you wan to sort algorithm No:");
 			System.out.println("1:Selection");
 			System.out.println("2:Bubble");
+
 			int no = sc.nextInt();
 			sc.nextLine();
 
@@ -36,7 +41,7 @@ public class Client {
 				System.out.println("The sorted Array is:");
 				for (int i = 0; i < strArr.length; i++) {
 					System.out.print(strArr[i]);
-					if (i < strArr.length -1) {
+					if (i < strArr.length - 1) {
 						System.out.print(",");
 					}
 				}
@@ -54,7 +59,7 @@ public class Client {
 	private static void exeSort(int no, String[] strArr) {
 		switch (no) {
 		case 1:
-			Sort.selectionSort(strArr);
+			selectionSort(strArr);
 			break;
 		case 2:
 			break;
