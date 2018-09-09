@@ -17,42 +17,27 @@ public class Client {
 	public static void main(String[] args) {
 		String input = "";
 		Scanner sc = new Scanner(System.in);
+		try {
+			do {
+				System.out.println("Input you want to sort array which delimiter is comma(input q to exit ):");
 
-		do {
-			System.out.println("Input you want to sort array which delimiter is comma(input q to exit ):");
-
-			input = sc.nextLine();
-			if (input.equals("q")) {
-				System.out.println("Exit from this app!");
-				break;
-			}
-
-			String[] strArr = input.split(",");
-
-			System.out.println("Select you wan to sort algorithm No:");
-			System.out.println("1:Selection");
-			System.out.println("2:Bubble");
-
-			int no = sc.nextInt();
-			sc.nextLine();
-
-			try {
-				exeSort(no, strArr);
-				System.out.println("The sorted Array is:");
-				for (int i = 0; i < strArr.length; i++) {
-					System.out.print(strArr[i]);
-					if (i < strArr.length - 1) {
-						System.out.print(",");
-					}
+				input = sc.nextLine();
+				if (input.equals("q")) {
+					System.out.println("Exit from this app!");
+					break;
 				}
-				System.out.println();
-			} catch (Exception e) {
-				sc.close();
-				e.printStackTrace();
-			}
 
-		} while (!input.equals("q"));
+				String[] strArr = input.split(",");
+				exeSort(sc, strArr);
+				System.out.println("The sorted Array is:");
+				printArr(strArr);
 
-		sc.close();
+			} while (!input.equals("q"));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		finally {
+			sc.close();
+		}
 	}
 }
